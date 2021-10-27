@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <duplication lines="10" tokens="114">
+      <file column="41" endcolumn="50" endline="74" line="65"
+            path="B:\Code\JDBC_project\src\main\java\ua\lviv\iot\dao\implementation\CarDAO.java"/>
+      <file column="57" endcolumn="50" endline="95" line="86"
+            path="B:\Code\JDBC_project\src\main\java\ua\lviv\iot\dao\implementation\CarDAO.java"/>
+      <codefragment><![CDATA[                .prepareStatement(CREATE)) {
+
+            statement.setString(1, String.valueOf(car.getName()));
+            statement.setString(2, String.valueOf(car.getCar_body_style()));
+            statement.setFloat(3, car.getPrice_for_day());
+            statement.setInt(4, car.getSeats());
+            statement.setInt(5, car.getDoors());
+            statement.setString(6, String.valueOf(car.getGearbox_type()));
+            statement.setBoolean(7, car.getAccessible());
+            statement.setInt(8, car.getLocation());]]></codefragment>
+   </duplication>
+   <duplication lines="10" tokens="114">
+      <file column="41" endcolumn="60" endline="77" line="68"
+            path="B:\Code\JDBC_project\src\main\java\ua\lviv\iot\dao\implementation\UserDAO.java"/>
+      <file column="57" endcolumn="60" endline="100" line="91"
+            path="B:\Code\JDBC_project\src\main\java\ua\lviv\iot\dao\implementation\UserDAO.java"/>
+      <codefragment><![CDATA[                .prepareStatement(CREATE)) {
+
+            statement.setString(1, String.valueOf(user.getFirst_name()));
+            statement.setString(2, String.valueOf(user.getLast_name()));
+            statement.setString(3, user.getIdentity_document());
+            statement.setString(4, user.getDriver_license());
+            statement.setString(5, user.getMail());
+            statement.setString(6, String.valueOf(user.getPhone_number()));
+            statement.setString(7, user.getPayment_card());
+            statement.setString(8, user.getSecurity_login());]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="102">
+      <file column="41" endcolumn="68" endline="72" line="64"
+            path="B:\Code\JDBC_project\src\main\java\ua\lviv\iot\dao\implementation\LocationDAO.java"/>
+      <file column="57" endcolumn="68" endline="94" line="86"
+            path="B:\Code\JDBC_project\src\main\java\ua\lviv\iot\dao\implementation\LocationDAO.java"/>
+      <codefragment><![CDATA[                .prepareStatement(CREATE)) {
+
+            statement.setString(1, String.valueOf(location.getName()));
+            statement.setString(2, String.valueOf(location.getCountry()));
+            statement.setString(3, location.getCity());
+            statement.setString(4, location.getStreet());
+            statement.setString(5, location.getNumber());
+            statement.setString(6, String.valueOf(location.getZip_code()));
+            statement.setInt(7, location.getNumber_available_cars());]]></codefragment>
+   </duplication>
+</pmd-cpd>
