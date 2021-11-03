@@ -19,14 +19,14 @@ under the License.
 -->
 <rss version="0.91">
   <channel>
-    <title>JDBC_project - Checkstyle report</title>
+    <title>Hibernate_project - Checkstyle report</title>
     <link>${project.url}</link>
-    <description>JDBC_project - Checkstyle report</description>
+    <description>Hibernate_project - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2021</copyright>
     <item>
       <title>File: 24,
-             Errors: 435,
+             Errors: 511,
              Warnings: 0,
              Infos: 0
       </title>
@@ -55,7 +55,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  26
+                  11
                 </td>
               </tr>
                           <tr>
@@ -111,7 +111,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  71
+                  99
                 </td>
               </tr>
                           <tr>
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#ua.lviv.iot.connection.ConnectionManager.java">ua/lviv/iot/connection/ConnectionManager.java</a>
+                  <a href="${project.url}/checkstyle.html#ua.lviv.iot.Main.java">ua/lviv/iot/Main.java</a>
                 </td>
                 <td>
                   0
@@ -139,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  10
+                  7
                 </td>
               </tr>
                           <tr>
@@ -172,6 +172,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#ua.lviv.iot.HibernateUtil.java">ua/lviv/iot/HibernateUtil.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#ua.lviv.iot.dao.implementation.FineDAO.java">ua/lviv/iot/dao/implementation/FineDAO.java</a>
                 </td>
                 <td>
@@ -181,7 +195,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  18
+                  13
                 </td>
               </tr>
                           <tr>
@@ -195,7 +209,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  62
+                  100
                 </td>
               </tr>
                           <tr>
@@ -265,21 +279,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  27
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#ua.lviv.iot.App.java">ua/lviv/iot/App.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  4
+                  46
                 </td>
               </tr>
                           <tr>
@@ -307,7 +307,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  24
+                  11
                 </td>
               </tr>
                           <tr>
@@ -335,7 +335,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  26
+                  12
                 </td>
               </tr>
                           <tr>
@@ -349,7 +349,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  49
+                  89
                 </td>
               </tr>
                           <tr>
@@ -377,7 +377,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  11
+                  9
                 </td>
               </tr>
                       </tbody>

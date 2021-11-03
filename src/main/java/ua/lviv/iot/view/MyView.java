@@ -10,15 +10,17 @@ import ua.lviv.iot.model.Location;
 import ua.lviv.iot.model.User;
 
 import java.sql.SQLException;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class MyView {
     private final Scanner input = new Scanner(System.in);
     private final Map<String, Printable> menu = new LinkedHashMap<>();
 
     private final CarController carController = new CarController();
-    private final LocationController locationController
-            = new LocationController();
+    private final LocationController locationController = new LocationController();
     private final FineController fineController = new FineController();
     private final UserController userController = new UserController();
 
@@ -74,17 +76,17 @@ public class MyView {
         List<Car> cars = carController.findAll();
 
         System.out.format("| %3s | %-30s | %-20s | %-15s |"
-                        + " %-5s | %-8s | %-15s | %-10s | %-10s |\n", "id", "name",
+                        + " %-5s | %-8s | %-15s | %-10s |\n", "id", "name",
                 "car_body_style", "price_for_day", "seats",
                 "doors", "gearbox type",
-                "accessible", "location_id");
+                "accessible");
         System.out.print("-------------------------------------"
                 + "-----------------------------------------------------"
                 + "--------------------------------------------------------\n");
         for (Car entity : cars) {
             System.out.print(entity.toString());
         }
-        System.out.print("------------------------------------------"
+        System.out.print("\n------------------------------------------"
                 + "------------------------------------------------"
                 + "--------------------------------------------------------\n");
 
@@ -104,10 +106,9 @@ public class MyView {
         System.out.print("\nEnter gearbox type: ");
         String gearboxType = input.next();
         System.out.print("\nEnter accessible (true/false): ");
-        Boolean accessible = Boolean.valueOf(input.next());
+        Integer accessible = Integer.valueOf(input.next());
         System.out.print("\nEnter location id: ");
         Integer locationId = Integer.valueOf(input.next());
-
         return new Car(name, carBodyStyle, priceForDay,
                 seats, doors, gearboxType, accessible, locationId);
     }

@@ -1,31 +1,88 @@
 package ua.lviv.iot.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.*;
+import java.util.Objects;
 
-
-@Getter
-@Setter
+@Entity
 public class Fine {
     private Integer id;
-    private String type_of_fine;
+    private String typeOfFine;
     private String date;
-    private Integer user_id;
+    private Integer userId;
 
-    public Fine(Integer id, String type_of_fine, String date, Integer user_id) {
-        this.id = id;
-        this.type_of_fine = type_of_fine;
-        this.date = date;
-        this.user_id = user_id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    public Integer getId() {
+        return id;
     }
 
-    public Fine(String type_of_fine, String date, Integer user_id) {
-        this(null, type_of_fine, date, user_id);
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "type_of_fine")
+    public String getTypeOfFine() {
+        return typeOfFine;
+    }
+
+    public void setTypeOfFine(String typeOfFine) {
+        this.typeOfFine = typeOfFine;
+    }
+
+    @Basic
+    @Column(name = "date")
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Basic
+    @Column(name = "user_id")
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fine fine = (Fine) o;
+        return Objects.equals(id, fine.id) &&
+                Objects.equals(typeOfFine, fine.typeOfFine) &&
+                Objects.equals(date, fine.date) &&
+                Objects.equals(userId, fine.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, typeOfFine, date, userId);
+    }
+
+    public Fine() {
+    }
+
+
+    public Fine(String typeOfFine, String date, Integer userId) {
+        this.typeOfFine = typeOfFine;
+        this.date = date;
+        this.userId = userId;
     }
 
     @Override
     public String toString() {
         return String.format("\n| %3d | %-40s | %-20s | %s | ",
-                id, type_of_fine, date, user_id);
+                id, typeOfFine, date, userId);
     }
 }
+
+
