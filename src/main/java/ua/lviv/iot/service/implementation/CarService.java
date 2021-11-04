@@ -4,8 +4,8 @@ import ua.lviv.iot.dao.implementation.CarDAO;
 import ua.lviv.iot.model.Car;
 import ua.lviv.iot.service.AbstractService;
 
-import java.sql.SQLException;
 import java.util.List;
+import java.sql.SQLException;
 
 public class CarService implements AbstractService<Car> {
     private final CarDAO dao = new CarDAO();
