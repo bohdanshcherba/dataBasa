@@ -6,7 +6,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.lviv.iot.lab_6_spring.DTO.CarDTO;
+import ua.lviv.iot.lab_6_spring.DTO.FineDTO;
 import ua.lviv.iot.lab_6_spring.domain.Car;
+import ua.lviv.iot.lab_6_spring.domain.Fine;
 import ua.lviv.iot.lab_6_spring.service.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,21 +47,42 @@ public class CarController {
     public ResponseEntity<CarDTO> updateCar(@PathVariable("id") final int id, @Valid @RequestBody final Car car) {
         if (carService.getCarId(id) == null) {
             LOGGER.info("Id no taken");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         }
+        else{
         LOGGER.info("Updated an car with id: " + id);
         car.setId(id);
         carService.updateCar(car);
-        return new ResponseEntity<CarDTO>(new CarDTO(car), HttpStatus.OK);
+        return new ResponseEntity<CarDTO>(new CarDTO(car), HttpStatus.OK);}
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Car> deleteCar(@PathVariable("id") Integer id) {
         if (carService.getCarId(id) == null) {
             LOGGER.info("Can't delete car ");
-
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        LOGGER.info("Successfully deleted car with id: " + id);
-        carService.deleteCar(id);
-        return ResponseEntity.noContent().build();
+        else {
+            LOGGER.info("Successfully deleted car with id: " + id);
+            carService.deleteCar(id);
+            return ResponseEntity.noContent().build();
+        }
     }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<CarDTO> getOne(@PathVariable("id") Integer id) {
+        if (carService.getCarId(id) == null) {
+            LOGGER.info("Can't get car ");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        } else {
+            LOGGER.info("Successfully get car with id: " + id);
+            Car car = carService.getOne(id);
+
+            CarDTO carDTO = new CarDTO(car);
+            return new ResponseEntity<CarDTO>(carDTO, HttpStatus.OK);
+        }
+    }
+
 }

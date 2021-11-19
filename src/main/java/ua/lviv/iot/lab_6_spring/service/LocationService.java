@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lviv.iot.lab_6_spring.domain.Location;
+import ua.lviv.iot.lab_6_spring.domain.User;
 import ua.lviv.iot.lab_6_spring.repository.LocationRepository;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class LocationService {
     public List<Location> getAllLocation() {
         return locationRepository.findAll();
     }
+
+    public Location getOne(Integer id) {
+        return locationRepository.getOne(id);
+    }
+
 
     @Transactional
     public Location createLocation(Location location) {

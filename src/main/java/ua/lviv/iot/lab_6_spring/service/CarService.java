@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lviv.iot.lab_6_spring.domain.Car;
 
+
 import ua.lviv.iot.lab_6_spring.repository.CarRepository;
 
 import java.util.List;
@@ -20,6 +21,11 @@ public class CarService {
     public List<Car> getAllCar() {
         return carRepository.findAll();
     }
+
+    public Car getOne(Integer id) {
+        return carRepository.getOne(id);
+    }
+
 
     @Transactional
     public Car createCar(Car car) {

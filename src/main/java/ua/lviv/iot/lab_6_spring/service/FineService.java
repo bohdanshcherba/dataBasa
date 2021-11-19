@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lviv.iot.lab_6_spring.domain.Fine;
+import ua.lviv.iot.lab_6_spring.domain.User;
 import ua.lviv.iot.lab_6_spring.repository.FineRepository;
 
 import java.util.List;
@@ -17,6 +18,10 @@ public class FineService {
 
     public List<Fine> getAllFine() {
         return fineRepository.findAll();
+    }
+
+    public Fine getOne(Integer id) {
+        return fineRepository.getOne(id);
     }
 
     @Transactional

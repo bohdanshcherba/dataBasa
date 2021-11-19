@@ -20,6 +20,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getOne(Integer id) {
+        return userRepository.getOne(id);
+    }
+
     @Transactional
     public User createUser(User user) {
         return userRepository.save(user);

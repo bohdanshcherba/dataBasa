@@ -8,8 +8,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.lviv.iot.lab_6_spring.DTO.LocationDTO;
+import ua.lviv.iot.lab_6_spring.DTO.UserDTO;
 import ua.lviv.iot.lab_6_spring.domain.Location;
 
+import ua.lviv.iot.lab_6_spring.domain.User;
 import ua.lviv.iot.lab_6_spring.service.LocationService;
 
 
@@ -48,21 +50,41 @@ public class LocationController {
     public ResponseEntity<LocationDTO> updateLocation(@PathVariable("id") final int id, @Valid @RequestBody final Location location) {
         if (locationService.getLocationId(id) == null) {
             LOGGER.info("Id no taken");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         }
+        else{
         LOGGER.info("Updated an Location with id: " + id);
         location.setId(id);
         locationService.updateLocation(location);
-        return new ResponseEntity<LocationDTO>(new LocationDTO(location), HttpStatus.OK);
+        return new ResponseEntity<LocationDTO>(new LocationDTO(location), HttpStatus.OK);}
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Location> deleteLocation(@PathVariable("id") Integer id) {
         if (locationService.getLocationId(id) == null) {
             LOGGER.info("Can't delete Location ");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         }
+        else {
         LOGGER.info("Successfully deleted Location with id: " + id);
         locationService.deleteLocation(id);
         return ResponseEntity.noContent().build();
+    }}
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<LocationDTO> getOne(@PathVariable("id") Integer id) {
+        if (locationService.getLocationId(id) == null) {
+            LOGGER.info("Can't get location ");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        } else {
+            LOGGER.info("Successfully get location with id: " + id);
+            Location location = locationService.getOne(id);
+
+            LocationDTO locationDTO = new LocationDTO(location);
+            return new ResponseEntity<LocationDTO>(locationDTO, HttpStatus.OK);
+        }
     }
+
 }
